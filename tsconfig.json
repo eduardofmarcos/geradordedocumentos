@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "lib": [
+      "es6",
+      "es2017.string"
+    ],
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
     /* Projects */
