@@ -15,7 +15,7 @@ export class CCCreator {
         * */
         const result: ICreditCard = {
             number: GenCC(flag)[0],
-            expireDate: new Date().toLocaleDateString("pt-BR").,
+            expireDate: new Date().toLocaleDateString("pt-BR"),
             cvv:`${Math.floor(this.getRandomArbitrary(0,9)).toString()}${Math.floor(this.getRandomArbitrary(0,9)).toString()}${Math.floor(this.getRandomArbitrary(0,9)).toString()}`
         }
         
