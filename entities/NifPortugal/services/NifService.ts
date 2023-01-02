@@ -6,18 +6,28 @@ class NifService {
     /**
      * Create Nif
      */
-    async create(isPointed: boolean): Promise<string | any> {
+    async create(isPointed: boolean, qtd: string): Promise<string | any> {
         
         logger.watch('Creating new Nif')
         
         try {
-            let Nif = await NifCreator.NifGenerator()
             
-            if (!isPointed) {
-                return Nif.replace(/\D/g, '')
+            let nifsArrayPointed = []
+            let nifsArray = []
+            let index = Number(qtd) > 30 ? 30 : qtd
+            
+            for (let i: number = 0; i < index; i++) {
+                
+                let nif = await NifCreator.NifGenerator()
+                
+                if (!isPointed) {
+                    nifsArray.push(nif.replace(/\D/g, ''))
+                }
+                
+                nifsArrayPointed.push(nif)
             }
             
-            return Nif
+            return isPointed ? nifsArrayPointed : nifsArray
         } catch (e) {
             console.log(e)
         }

@@ -6,18 +6,26 @@ class CpfService {
     /**
      * Create CPF
      */
-    async create(isPointed: boolean): Promise<string | any> {
+    async create(isPointed: boolean, qtd: string): Promise<string | any> {
         
         logger.watch('Creating new CPF')
         
         try {
-            let cpf = await CpfCreator.cpfGenerator()
+            let cpfsArrayPointed = []
+            let cpfsArray = []
+            let index = Number(qtd) > 30 ? 30 : qtd
             
-            if (!isPointed) {
-                return cpf.replace(/\D/g, '')
+            for (let i: number = 0; i < index; i++) {
+                let cpf = await CpfCreator.cpfGenerator()
+                
+                if (!isPointed) {
+                    cpfsArray.push(cpf.replace(/\D/g, ''))
+                }
+                
+                cpfsArrayPointed.push(cpf)
             }
             
-            return cpf
+            return isPointed ? cpfsArrayPointed : cpfsArray
         } catch (e) {
             console.log(e)
         }

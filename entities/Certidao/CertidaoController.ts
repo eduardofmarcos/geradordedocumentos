@@ -17,8 +17,9 @@ class CertidaoController implements ICertidaoController {
         logger.start('Creating Certidao')
         
         const isPointed: boolean = req.query.pointed
+        const qtd: string = req.query.qtd ? req.query.qtd : "1"
         
-        const created : string = await CertidaoService.create(isPointed)
+        const created: string = await CertidaoService.create(isPointed, qtd)
         
         logger.success('Certidao Created')
         

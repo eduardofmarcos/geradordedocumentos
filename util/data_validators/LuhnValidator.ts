@@ -2,7 +2,7 @@ export default class LuhnValidator {
     
     private checkNumber: any
     
-    constructor(checkNumber:any) {
+    constructor(checkNumber: any) {
         this.checkNumber = checkNumber
     }
     
@@ -22,7 +22,7 @@ export default class LuhnValidator {
             sumArray.push(numHolder);
             everySecondNumber++;
         }
-        let totalSum = sumArray.reduce((acc,val) => acc + val, 0);
+        let totalSum = sumArray.reduce((acc, val) => acc + val, 0);
         return totalSum % 10 == 0;
     }
     

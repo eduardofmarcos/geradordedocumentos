@@ -1,7 +1,6 @@
 import {Response} from 'express';
 import {OK} from 'http-status';
 import {logger} from '../../util/Logger/Logger';
-import CpfService from "./services/CnpjService";
 import CnpjService from "./services/CnpjService";
 
 interface ICnpjController {
@@ -18,8 +17,9 @@ class CnpjController implements ICnpjController {
         logger.start('Creating CNPJ')
         
         const isPointed: boolean = req.query.pointed
+        const qtd: string = req.query.qtd ? req.query.qtd : "1"
         
-        const created : string = await CnpjService.create(isPointed)
+        const created: string = await CnpjService.create(isPointed, qtd)
         
         logger.success('CNPJ Created')
         

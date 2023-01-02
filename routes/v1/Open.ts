@@ -7,5 +7,4 @@ const router = Router()
 router.use('/generators', app_routes)
 
 
-
 export default router

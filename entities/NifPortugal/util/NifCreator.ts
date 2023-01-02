@@ -15,7 +15,7 @@ export class NifCreator {
     
     private static gerarNif() {
         
-        const firstDv = [9,8,7,6,5,4,3,2]
+        const firstDv = [9, 8, 7, 6, 5, 4, 3, 2]
         
         const Nif = []
         

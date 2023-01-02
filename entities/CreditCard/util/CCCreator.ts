@@ -6,7 +6,7 @@ export class CCCreator {
     constructor() {
     }
     
-    public static CCGenerator(flag:string): Promise<ICreditCard> {
+    public static CCGenerator(flag: string): Promise<ICreditCard> {
         
         /*
         * Visa = Argument = VISA
@@ -16,7 +16,7 @@ export class CCCreator {
         const result: ICreditCard = {
             number: GenCC(flag)[0],
             expireDate: new Date().toLocaleDateString("pt-BR"),
-            cvv:`${Math.floor(this.getRandomArbitrary(0,9)).toString()}${Math.floor(this.getRandomArbitrary(0,9)).toString()}${Math.floor(this.getRandomArbitrary(0,9)).toString()}`
+            cvv: `${Math.floor(this.getRandomArbitrary(0, 9)).toString()}${Math.floor(this.getRandomArbitrary(0, 9)).toString()}${Math.floor(this.getRandomArbitrary(0, 9)).toString()}`
         }
         
         return new Promise((resolve, reject): void => {
@@ -24,7 +24,8 @@ export class CCCreator {
             reject('Something went wrong with CC creation!')
         })
     }
-    private static getRandomArbitrary(min:number, max:number) {
+    
+    private static getRandomArbitrary(min: number, max: number) {
         return Math.random() * (max - min) + min;
     }
     

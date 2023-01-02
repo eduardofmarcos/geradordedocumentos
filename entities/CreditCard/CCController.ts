@@ -18,8 +18,9 @@ class CCController implements ICCController {
         logger.start('Creating CC')
         
         const flag: string = req.query.flag
+        const qtd: string = req.query.qtd ? req.query.qtd : "1"
         
-        const created : ICreditCard = await CCService.create(flag)
+        const created: ICreditCard = await CCService.create(flag, qtd)
         
         logger.success('CC Created')
         

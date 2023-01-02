@@ -17,8 +17,9 @@ class NifController implements INifController {
         logger.start('Creating Nif')
         
         const isPointed: boolean = req.query.pointed
+        const qtd: string = req.query.qtd ? req.query.qtd : "1"
         
-        const created : string = await NifService.create(isPointed)
+        const created: string = await NifService.create(isPointed, qtd)
         
         logger.success('Nif Created')
         

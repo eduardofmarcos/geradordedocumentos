@@ -7,14 +7,23 @@ class CCService {
     /**
      * Create CC
      */
-    async create(flag:string): Promise<ICreditCard | any> {
+    async create(flag: string, qtd: string): Promise<ICreditCard | any> {
         
         logger.watch('Creating new CC')
         
         try {
-            let CC: ICreditCard = await CCCreator.CCGenerator(flag)
             
-            return CC
+            let ccsArray: ICreditCard | any = []
+            let index = Number(qtd) > 30 ? 30 : qtd
+            
+            for (let i: number = 0; i < index; i++) {
+                let CC: ICreditCard = await CCCreator.CCGenerator(flag)
+                
+                ccsArray.push(CC)
+            }
+            
+            return ccsArray
+            
         } catch (e) {
             console.log(e)
         }

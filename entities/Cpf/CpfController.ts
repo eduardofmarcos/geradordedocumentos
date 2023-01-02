@@ -17,8 +17,9 @@ class CpfController implements ICpfController {
         logger.start('Creating CPF')
         
         const isPointed: boolean = req.query.pointed
+        const qtd: string = req.query.qtd ? req.query.qtd : "1"
         
-        const created : string = await CpfService.create(isPointed)
+        const created: string = await CpfService.create(isPointed, qtd)
         
         logger.success('CPF Created')
         
