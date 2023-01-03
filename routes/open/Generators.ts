@@ -8,18 +8,19 @@ import PersonController from "../../entities/Person/PersonController";
 import RgSPController from "../../entities/RgSP/RgSPController";
 import RgRJController from "../../entities/RgRJ/RgRJController";
 import MaspController from "../../entities/MaSP/MaspController";
+import AsyncHandlerP from "../../util/AsyncHandlerP/AsyncHandlerP";
 
 const router = Router();
 
-router.get('/cpf', CpfController.create);
-router.get('/cnpj', CnpjController.create)
-router.get('/cc', CCController.create)
-router.get('/certidao', CertidaoController.create)
-router.get('/nif', NifController.create)
-router.get('/person', PersonController.create)
-router.get('/rgsp', RgSPController.create)
-router.get('/rgrj', RgRJController.create)
-router.get('/masp', MaspController.create)
+router.get('/cpf', AsyncHandlerP.handler(CpfController.create));
+router.get('/cnpj', AsyncHandlerP.handler(CnpjController.create))
+router.get('/cc', AsyncHandlerP.handler(CCController.create))
+router.get('/certidao', AsyncHandlerP.handler(CertidaoController.create))
+router.get('/nif', AsyncHandlerP.handler(NifController.create))
+router.get('/person', AsyncHandlerP.handler(PersonController.create))
+router.get('/rgsp', AsyncHandlerP.handler(RgSPController.create))
+router.get('/rgrj', AsyncHandlerP.handler(RgRJController.create))
+router.get('/masp', AsyncHandlerP.handler(MaspController.create))
 
 
 export default router;

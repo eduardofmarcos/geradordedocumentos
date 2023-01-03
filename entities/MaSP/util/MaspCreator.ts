@@ -44,7 +44,6 @@ export class MaspCreator {
             
         })
         
-        console.log(firstDvAcc)
         let firstNumToSum = Number(firstDvAcc.toString()[0])
         
         let secNumToSumConcat = Number((firstNumToSum + 1).toString() + 0)
