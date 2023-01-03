@@ -7,6 +7,7 @@ import NifController from "../../entities/NifPortugal/NifController";
 import PersonController from "../../entities/Person/PersonController";
 import RgSPController from "../../entities/RgSP/RgSPController";
 import RgRJController from "../../entities/RgRJ/RgRJController";
+import MaspController from "../../entities/MaSP/MaspController";
 
 const router = Router();
 
@@ -18,6 +19,7 @@ router.get('/nif', NifController.create)
 router.get('/person', PersonController.create)
 router.get('/rgsp', RgSPController.create)
 router.get('/rgrj', RgRJController.create)
+router.get('/masp', MaspController.create)
 
 
 export default router;
