@@ -37,7 +37,7 @@ export class PersonCreator {
         let middleNames = ['Macan', 'Berti', 'Silva', 'Souza', 'Belenetti', 'Benedet', 'Casagrande', 'Felippe', 'De luca', 'Machado', 'Silvestre']
         let lastNames = ['Ramos', 'Santos', 'Oliveira', 'Rodrigues', 'Ferreira', 'Alves', 'Pereira', 'Moura', 'Monteiro', 'Reis', 'Rocha']
         let profession = ['Marcineiro(a)', 'Mecânico(a)', 'Programador(a)', 'Eletrecista(a)', 'Professor(a)', 'Médico(a)', 'Enfermeiro(a)', 'Ajudante de Obra', 'Gari', 'Lixeiro(a)', 'Dentista']
-        let finalCompany = ['LDTA', 'Eirielli', 'S.A']
+        // let finalCompany = ['LDTA', 'Eirielli', 'S.A']
         
         let stateObj: any = {
             stateGroups1: ["Distrito Federal", "Goiás", "Mato Grosso do Sul", "Tocantins"],
