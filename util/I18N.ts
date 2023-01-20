@@ -36,10 +36,6 @@ interface I18NErrorMessages {
 }
 
 interface I18NMessages {
-    EMAIL_SUBJECT: {
-        RECOVER_PASS: Languages,
-        INVALID_EMAIL: Languages
-    },
     USER: {
         LOGIN_OK: Languages,
         
@@ -211,19 +207,6 @@ export class I18N {
     };
     
     public static MESSAGES: I18NMessages = {
-        
-        EMAIL_SUBJECT: {
-            RECOVER_PASS: {
-                [AvailableLocale.PT_BR]: 'YouCatholic - Recuperar senha',
-                [AvailableLocale.EN_US]: 'YouCatholic - Password recover',
-                [AvailableLocale.ES]: 'YouCatholic - Recuperar contraseña',
-            },
-            INVALID_EMAIL: {
-                [AvailableLocale.PT_BR]: 'E-mail inválido.',
-                [AvailableLocale.EN_US]: 'Invalid E-mail.',
-                [AvailableLocale.ES]: ''
-            }
-        },
         USER: {
             LOGIN_OK: {
                 [AvailableLocale.PT_BR]: 'Login Success',
