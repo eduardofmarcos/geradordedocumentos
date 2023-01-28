@@ -46,7 +46,7 @@ export default class Server {
         // app.use('/api/v1', protected_routes)
         
         
-        this._server_app = app.listen(port, () => this.logger.system('DocGenerator listening on port: ' + port));
+        this._server_app = app.listen(9400, () => this.logger.system('DocGenerator listening on port: ' + port));
         
         app.use(errorHandling);
         
