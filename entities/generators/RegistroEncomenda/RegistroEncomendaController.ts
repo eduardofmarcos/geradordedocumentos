@@ -1,28 +1,27 @@
 import {Response} from 'express';
 import {OK} from 'http-status';
 import {logger} from '../../../util/Logger/Logger';
-import TeService from "./services/TeService";
+import RegistroEncomendaService from "./services/RegistroEncomendaService";
 
-interface ITeController {
+interface IRegistroEncomendaController {
     create(req: any, res: Response): Promise<Response>
 }
 
-class TeController implements ITeController {
+class RegistroEncomendaController implements IRegistroEncomendaController {
     
     /**
-     * create a Te
+     * create a RegistroEncomenda
      */
     async create(req: any, res: Response): Promise<Response> {
         
-        logger.start('Creating Te')
+        logger.start('Creating RegistroEncomenda')
         
         const isPointed: boolean = req.query.pointed
         const qtd: string = req.query.qtd ? req.query.qtd : "1"
-        const state: string = req.query.st ? req.query.st : 'SP'
         
-        const created: string = await TeService.create(isPointed, qtd, state)
+        const created: string = await RegistroEncomendaService.create(isPointed, qtd)
         
-        logger.success('Te Created')
+        logger.success('RegistroEncomenda Created')
         
         return res.status(OK).json(created)
         
@@ -30,4 +29,4 @@ class TeController implements ITeController {
     
 }
 
-export default new TeController()
+export default new RegistroEncomendaController()

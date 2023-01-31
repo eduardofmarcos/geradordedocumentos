@@ -14,7 +14,7 @@ class PersonService {
             
             let PersonArrayPointed = []
             let PersonArray = []
-            let index = Number(qtd) > 30 ? 30 : qtd
+            let index = Number(qtd) > 1000 ? 1000 : qtd
             
             
             for (let i: number = 0; i < index; i++) {

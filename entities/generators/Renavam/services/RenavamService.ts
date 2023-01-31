@@ -1,32 +1,32 @@
 import {logger} from '../../../../util/Logger/Logger';
-import {CnhCreator} from "../util/CnhCreator";
+import {RenavamCreator} from "../util/RenavamCreator";
 
-class CnhService {
+class RenavamService {
     
     /**
-     * Create Cnh
+     * Create Renavam
      */
     async create(isPointed: boolean, qtd: string): Promise<string | any> {
         
-        logger.watch('Creating new Cnh')
+        logger.watch('Creating new Renavam')
         
         try {
             
-            let CnhArrayPointed = []
-            let CnhArray = []
+            let RenavamArrayPointed = []
+            let RenavamArray = []
             let index = Number(qtd) > 10000 ? 10000 : qtd
             
             
             for (let i: number = 0; i < index; i++) {
-                let Cnh = await CnhCreator.CnhGenerator()
+                let Renavam = await RenavamCreator.RenavamGenerator()
                 
                 if (!isPointed) {
-                    CnhArray.push(Cnh.replace(/\D/g, ''))
+                    RenavamArray.push(Renavam.replace(/\D/g, ''))
                 }
                 
-                CnhArrayPointed.push(Cnh)
+                RenavamArrayPointed.push(Renavam)
             }
-            return isPointed ? CnhArrayPointed : CnhArray
+            return isPointed ? RenavamArrayPointed : RenavamArray
         } catch (e) {
             console.log(e)
         }
@@ -34,4 +34,4 @@ class CnhService {
     }
 }
 
-export default new CnhService()
+export default new RenavamService()

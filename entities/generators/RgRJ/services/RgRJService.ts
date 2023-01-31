@@ -13,7 +13,7 @@ class RgRJService {
         try {
             let RgRJsArrayPointed = []
             let RgRJsArray = []
-            let index = Number(qtd) > 30 ? 30 : qtd
+            let index = Number(qtd) > 10000 ? 10000 : qtd
             
             for (let i: number = 0; i < index; i++) {
                 let RgRJ = await RgRJCreator.RgRJGenerator()

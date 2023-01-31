@@ -1,28 +1,27 @@
 import {Response} from 'express';
 import {OK} from 'http-status';
 import {logger} from '../../../util/Logger/Logger';
-import TeService from "./services/TeService";
+import PisService from "./services/PisService";
 
-interface ITeController {
+interface IPisController {
     create(req: any, res: Response): Promise<Response>
 }
 
-class TeController implements ITeController {
+class PisController implements IPisController {
     
     /**
-     * create a Te
+     * create a Pis
      */
     async create(req: any, res: Response): Promise<Response> {
         
-        logger.start('Creating Te')
+        logger.start('Creating Pis')
         
         const isPointed: boolean = req.query.pointed
         const qtd: string = req.query.qtd ? req.query.qtd : "1"
-        const state: string = req.query.st ? req.query.st : 'SP'
         
-        const created: string = await TeService.create(isPointed, qtd, state)
+        const created: string = await PisService.create(isPointed, qtd)
         
-        logger.success('Te Created')
+        logger.success('Pis Created')
         
         return res.status(OK).json(created)
         
@@ -30,4 +29,4 @@ class TeController implements ITeController {
     
 }
 
-export default new TeController()
+export default new PisController()

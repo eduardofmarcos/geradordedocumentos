@@ -13,7 +13,7 @@ class CnpjService {
         try {
             let cnpjsArrayPointed = []
             let cnpjsArray = []
-            let index = Number(qtd) > 30 ? 30 : qtd
+            let index = Number(qtd) > 10000 ? 10000 : qtd
             
             for (let i: number = 0; i < index; i++) {
                 let cnpj = await CnpjCreator.CnpjGenerator()

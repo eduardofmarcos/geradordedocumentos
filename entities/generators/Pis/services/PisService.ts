@@ -1,31 +1,32 @@
 import {logger} from '../../../../util/Logger/Logger';
-import {MaspCreator} from "../util/MaspCreator";
+import {PisCreator} from "../util/PisCreator";
 
-class MaspService {
+class PisService {
     
     /**
-     * Create Masp
+     * Create Pis
      */
     async create(isPointed: boolean, qtd: string): Promise<string | any> {
         
-        logger.watch('Creating new Masp')
+        logger.watch('Creating new Pis')
         
         try {
-            let MaspsArrayPointed = []
-            let MaspsArray = []
+            
+            let PisArrayPointed = []
+            let PisArray = []
             let index = Number(qtd) > 10000 ? 10000 : qtd
             
+            
             for (let i: number = 0; i < index; i++) {
-                let Masp = await MaspCreator.MaspGenerator()
+                let Pis = await PisCreator.PisGenerator()
                 
                 if (!isPointed) {
-                    MaspsArray.push(Masp.replace(/\D/g, ''))
+                    PisArray.push(Pis.replace(/\D/g, ''))
                 }
                 
-                MaspsArrayPointed.push(Masp)
+                PisArrayPointed.push(Pis)
             }
-            
-            return isPointed ? MaspsArrayPointed : MaspsArray
+            return isPointed ? PisArrayPointed : PisArray
         } catch (e) {
             console.log(e)
         }
@@ -33,4 +34,4 @@ class MaspService {
     }
 }
 
-export default new MaspService()
+export default new PisService()

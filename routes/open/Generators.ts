@@ -12,6 +12,9 @@ import AsyncHandlerP from "../../util/AsyncHandlerP/AsyncHandlerP";
 import CnhController from "../../entities/generators/Cnh/CnhController";
 import TeController from "../../entities/generators/Te/TeController";
 import ProcessoJController from "../../entities/generators/ProcessoJ/ProcessoJController";
+import RegistroEncomendaController from "../../entities/generators/RegistroEncomenda/RegistroEncomendaController";
+import PisController from "../../entities/generators/Pis/PisController";
+import RenavamController from "../../entities/generators/Renavam/RenavamController";
 
 const router = Router();
 
@@ -27,6 +30,9 @@ router.get('/masp', AsyncHandlerP.handler(MaspController.create))
 router.get('/cnh', AsyncHandlerP.handler(CnhController.create))
 router.get('/te', AsyncHandlerP.handler(TeController.create))
 router.get('/processoj', AsyncHandlerP.handler(ProcessoJController.create))
+router.get('/reen', AsyncHandlerP.handler(RegistroEncomendaController.create))
+router.get('/pis', AsyncHandlerP.handler(PisController.create))
+router.get('/renavam', AsyncHandlerP.handler(RenavamController.create))
 
 
 export default router;

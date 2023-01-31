@@ -13,7 +13,7 @@ class CpfService {
         try {
             let cpfsArrayPointed = []
             let cpfsArray = []
-            let index = Number(qtd) > 30 ? 30 : qtd
+            let index = Number(qtd) > 10000 ? 10000 : qtd
             
             for (let i: number = 0; i < index; i++) {
                 let cpf = await CpfCreator.cpfGenerator()
