@@ -39,6 +39,6 @@ export class RenavamCreator {
         
         Renavam.push(firstDvNumberToPush)
         
-        return `${Renavam[0]}${Renavam[1]}${Renavam[2]}.${Renavam[3]}${Renavam[4]}${Renavam[5]}${Renavam[6]}${Renavam[7]}.${Renavam[8]}${Renavam[9]}-${Renavam[10]}`
+        return `${Renavam[0]}${Renavam[1]}${Renavam[2]}${Renavam[3]}${Renavam[4]}${Renavam[5]}${Renavam[6]}${Renavam[7]}${Renavam[8]}${Renavam[9]}${Renavam[10]}`
     }
 }
