@@ -2,6 +2,7 @@ import {Response} from 'express';
 import {OK} from 'http-status';
 import {logger} from '../../util/Logger/Logger';
 import MaspService from "./services/MaspService";
+import CnhService from "../Cnh/services/CnhService";
 
 interface IMaspController {
     create(req: any, res: Response): Promise<Response>
@@ -24,6 +25,18 @@ class MaspController implements IMaspController {
         logger.success('Masp Created')
         
         return res.status(OK).json(created)
+        
+    }
+    
+    async validate(req: any, res: Response) : Promise<Response>{
+        
+        const valueToValidate = req.body.valueToValidate
+        console.log("controller",valueToValidate)
+        const isValid = await MaspService.validate(valueToValidate)
+        
+        logger.success("Masp Checked")
+        
+        return res.status(OK).json(isValid)
         
     }
     

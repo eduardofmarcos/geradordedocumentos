@@ -4,7 +4,7 @@ export class MaspCreator {
     
     public static MaspGenerator(): Promise<string> {
         
-        const result: string = this.gerarMasp()
+        const result: string = this.gerarMasp(null)
         
         return new Promise((resolve, reject): void => {
             resolve(result)
@@ -12,24 +12,38 @@ export class MaspCreator {
         })
     }
     
+    public static MaspValidator(valueToCheck: string): Promise<boolean> {
+        
+        const result = this.validarMasp(valueToCheck)
+        
+        return new Promise((resolve, reject): void => {
+            resolve(result)
+            reject('Something went wrong with Certidao validation!')
+        })
+    }
     
-    private static gerarMasp() {
+    
+    private static gerarMasp(arrayDefined: any) {
+    
+        let Masp = []
+    
+        Masp = arrayDefined ? arrayDefined : []
         
         const firstDv = [2, 1, 2, 1, 2, 1, 2]
-        
-        const Masp = []
         
         let firstDvAcc = 0
         
         function getRandomArbitrary(min: any, max: any) {
             return Math.floor(Math.random() * (max - min) + min)
         }
-        
-        for (let i = 0; i <= 6; i++) {
-            Masp.push(getRandomArbitrary(0, 10))
+    
+        if (!arrayDefined) {
+            for (let i = 0; i <= 6; i++) {
+                Masp.push(getRandomArbitrary(0, 10))
+            }
         }
         
-        Masp.forEach((el: any, index) => {
+        Masp.forEach((el: any, index:any) => {
             
             if (el * firstDv[index] > 9) {
                 let sum = el * firstDv[index]
@@ -54,6 +68,23 @@ export class MaspCreator {
         Masp.push(firstDVNumber)
         
         return `${Masp[0]}${Masp[1]}${Masp[2]}${Masp[3]}${Masp[4]}${Masp[5]}${Masp[6]}-${Masp[7]}`
+    }
+    
+    private static validarMasp(valueToCheck: any) {
+        
+        const cleanData = valueToCheck.replace(/\D/g, '')
+        const cleanDataArr = cleanData.split('')
+        
+        if (cleanDataArr.length !== 8) return false
+        
+        const dv1 = cleanDataArr[7]
+        const Masp = cleanDataArr.slice(0, 7)
+        const certidaoResult = this.gerarMasp(Masp)
+        const clearCnhResult = certidaoResult.replace(/\D/g, '')
+        const dvToCheck1 = clearCnhResult[7]
+        
+        return dv1 === dvToCheck1
+        
     }
     
 }
