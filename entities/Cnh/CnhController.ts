@@ -2,7 +2,6 @@ import {Response} from 'express';
 import {OK} from 'http-status';
 import {logger} from '../../util/Logger/Logger';
 import CnhService from "./services/CnhService";
-import CertidaoService from "../Certidao/services/CertidaoService";
 
 interface ICnhController {
     create(req: any, res: Response): Promise<Response>
@@ -28,13 +27,13 @@ class CnhController implements ICnhController {
         
     }
     
-    async validate(req: any, res: Response) : Promise<Response>{
+    async validate(req: any, res: Response): Promise<Response> {
         
         const valueToValidate = req.body.valueToValidate
-        console.log("controller",valueToValidate)
+     
         const isValid = await CnhService.validate(valueToValidate)
         
-        logger.success("Certidao Checked")
+        logger.success("Cnh Checked")
         
         return res.status(OK).json(isValid)
         

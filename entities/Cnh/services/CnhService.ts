@@ -1,6 +1,5 @@
 import {logger} from '../../../util/Logger/Logger';
 import {CnhCreator} from "../util/CnhCreator";
-import {CertidaoCreator} from "../../Certidao/util/CertidaoCreator";
 
 class CnhService {
     
@@ -34,12 +33,12 @@ class CnhService {
         
     }
     
-    async validate(valueToCheck:string): Promise<string | any>{
+    async validate(valueToCheck: string): Promise<string | any> {
         
-        try{
+        try {
             const resultOfValidation = await CnhCreator.CnhValidator(valueToCheck)
             return resultOfValidation
-        }catch (e){
+        } catch (e) {
             console.log(e)
         }
         

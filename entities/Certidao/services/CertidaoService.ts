@@ -33,12 +33,12 @@ class CertidaoService {
         
     }
     
-    async validate(valueToCheck:string): Promise<string | any>{
+    async validate(valueToCheck: string): Promise<string | any> {
         
-        try{
+        try {
             const resultOfValidation = await CertidaoCreator.certidaoValidator(valueToCheck)
             return resultOfValidation
-        }catch (e){
+        } catch (e) {
             console.log(e)
         }
         

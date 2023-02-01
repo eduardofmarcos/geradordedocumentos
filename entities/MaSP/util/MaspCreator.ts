@@ -24,9 +24,9 @@ export class MaspCreator {
     
     
     private static gerarMasp(arrayDefined: any) {
-    
+        
         let Masp = []
-    
+        
         Masp = arrayDefined ? arrayDefined : []
         
         const firstDv = [2, 1, 2, 1, 2, 1, 2]
@@ -36,14 +36,14 @@ export class MaspCreator {
         function getRandomArbitrary(min: any, max: any) {
             return Math.floor(Math.random() * (max - min) + min)
         }
-    
+        
         if (!arrayDefined) {
             for (let i = 0; i <= 6; i++) {
                 Masp.push(getRandomArbitrary(0, 10))
             }
         }
         
-        Masp.forEach((el: any, index:any) => {
+        Masp.forEach((el: any, index: any) => {
             
             if (el * firstDv[index] > 9) {
                 let sum = el * firstDv[index]

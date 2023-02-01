@@ -1,6 +1,5 @@
 import {logger} from '../../../util/Logger/Logger';
 import {MaspCreator} from "../util/MaspCreator";
-import {CnhCreator} from "../../Cnh/util/CnhCreator";
 
 class MaspService {
     
@@ -33,12 +32,12 @@ class MaspService {
         
     }
     
-    async validate(valueToCheck:string): Promise<string | any>{
+    async validate(valueToCheck: string): Promise<string | any> {
         
-        try{
+        try {
             const resultOfValidation = await MaspCreator.MaspValidator(valueToCheck)
             return resultOfValidation
-        }catch (e){
+        } catch (e) {
             console.log(e)
         }
         
