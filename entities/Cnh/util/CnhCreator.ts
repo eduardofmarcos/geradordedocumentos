@@ -73,8 +73,8 @@ export class CnhCreator {
         const dv1 = cleanDataArr[9]
         const dv2 = cleanDataArr[10]
         const Cnh = cleanDataArr.slice(0, 9)
-        const certidaoResult = this.gerarCnh(Cnh)
-        const clearCnhResult = certidaoResult.replace(/\D/g, '')
+        const cnhResult = this.gerarCnh(Cnh)
+        const clearCnhResult = cnhResult.replace(/\D/g, '')
         const dvToCheck1 = clearCnhResult[9]
         const dvToCheck2 = clearCnhResult[10]
         

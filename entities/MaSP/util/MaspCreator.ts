@@ -79,9 +79,9 @@ export class MaspCreator {
         
         const dv1 = cleanDataArr[7]
         const Masp = cleanDataArr.slice(0, 7)
-        const certidaoResult = this.gerarMasp(Masp)
-        const clearCnhResult = certidaoResult.replace(/\D/g, '')
-        const dvToCheck1 = clearCnhResult[7]
+        const maspResult = this.gerarMasp(Masp)
+        const clearMaspResult = maspResult.replace(/\D/g, '')
+        const dvToCheck1 = clearMaspResult[7]
         
         return dv1 === dvToCheck1
         

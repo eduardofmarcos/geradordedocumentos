@@ -27,6 +27,18 @@ class NifController implements INifController {
         
     }
     
+    async validate(req: any, res: Response): Promise<Response> {
+        
+        const valueToValidate = req.body.valueToValidate
+        
+        const isValid = await NifService.validate(valueToValidate)
+        
+        logger.success("Nif Checked")
+        
+        return res.status(OK).json(isValid)
+        
+    }
+    
 }
 
 export default new NifController()

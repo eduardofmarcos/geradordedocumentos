@@ -33,6 +33,18 @@ class NifService {
         }
         
     }
+    
+    async validate(valueToCheck: string): Promise<string | any> {
+        
+        try {
+            const resultOfValidation = await NifCreator.NifValidator(valueToCheck)
+            return resultOfValidation
+        } catch (e) {
+            console.log(e)
+        }
+        
+        
+    }
 }
 
 export default new NifService()
