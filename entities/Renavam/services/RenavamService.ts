@@ -1,5 +1,6 @@
 import {logger} from '../../../util/Logger/Logger';
 import {RenavamCreator} from "../util/RenavamCreator";
+import {PisCreator} from "../../Pis/util/PisCreator";
 
 class RenavamService {
     
@@ -30,6 +31,18 @@ class RenavamService {
         } catch (e) {
             console.log(e)
         }
+        
+    }
+    
+    async validate(valueToCheck: string): Promise<string | any> {
+        
+        try {
+            const resultOfValidation = await RenavamCreator.RenavamValidator(valueToCheck)
+            return resultOfValidation
+        } catch (e) {
+            console.log(e)
+        }
+        
         
     }
 }

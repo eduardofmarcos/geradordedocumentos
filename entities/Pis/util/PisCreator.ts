@@ -18,7 +18,7 @@ export class PisCreator {
         
         return new Promise((resolve, reject): void => {
             resolve(result)
-            reject('Something went wrong with Nif validation!')
+            reject('Something went wrong with Pis validation!')
         })
     }
     
