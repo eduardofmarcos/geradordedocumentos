@@ -1,5 +1,6 @@
 import {logger} from '../../../util/Logger/Logger';
 import {PisCreator} from "../util/PisCreator";
+import {NifCreator} from "../../NifPortugal/util/NifCreator";
 
 class PisService {
     
@@ -30,6 +31,18 @@ class PisService {
         } catch (e) {
             console.log(e)
         }
+        
+    }
+    
+    async validate(valueToCheck: string): Promise<string | any> {
+        
+        try {
+            const resultOfValidation = await PisCreator.PisValidator(valueToCheck)
+            return resultOfValidation
+        } catch (e) {
+            console.log(e)
+        }
+        
         
     }
 }

@@ -31,7 +31,7 @@ class CertidaoController implements ICertidaoController {
     async validate(req: any, res: Response): Promise<Response> {
         
         const valueToValidate = req.body.valueToValidate
-        
+       
         const isValid = await CertidaoService.validate(valueToValidate)
         
         logger.success("Certidao Checked")

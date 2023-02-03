@@ -30,7 +30,7 @@ class MaspController implements IMaspController {
     async validate(req: any, res: Response): Promise<Response> {
         
         const valueToValidate = req.body.valueToValidate
-        
+      
         const isValid = await MaspService.validate(valueToValidate)
         
         logger.success("Masp Checked")

@@ -30,7 +30,7 @@ class CnhController implements ICnhController {
     async validate(req: any, res: Response): Promise<Response> {
         
         const valueToValidate = req.body.valueToValidate
-        
+     
         const isValid = await CnhService.validate(valueToValidate)
         
         logger.success("Cnh Checked")

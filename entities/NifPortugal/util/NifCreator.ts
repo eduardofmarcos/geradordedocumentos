@@ -24,11 +24,11 @@ export class NifCreator {
     
     
     private static gerarNif(arrayDefined: any) {
-        
+    
         let Nif = []
-        
+    
         Nif = arrayDefined ? arrayDefined : []
-        
+       
         const firstDv = [9, 8, 7, 6, 5, 4, 3, 2]
         
         let firstDvAcc = 0
@@ -36,14 +36,14 @@ export class NifCreator {
         function getRandomArbitrary(min: any, max: any) {
             return Math.floor(Math.random() * (max - min) + min)
         }
-        
+    
         if (!arrayDefined) {
             for (let i = 0; i <= 7; i++) {
                 Nif.push(getRandomArbitrary(0, 10))
             }
         }
         
-        Nif.forEach((el: any, index: any) => {
+        Nif.forEach((el: any, index:any) => {
             firstDvAcc = firstDvAcc + (el * firstDv[index])
         })
         
