@@ -4,7 +4,7 @@ export class RgRJCreator {
     
     public static RgRJGenerator(): Promise<string> {
         
-        const result: string = this.gerarRgRJ()
+        const result: string = this.gerarRgRJ(null)
         
         return new Promise((resolve, reject): void => {
             resolve(result)
@@ -12,24 +12,38 @@ export class RgRJCreator {
         })
     }
     
+    public static RgRJValidator(valueToCheck: string): Promise<boolean> {
+        
+        const result = this.validarRgRJ(valueToCheck)
+        
+        return new Promise((resolve, reject): void => {
+            resolve(result)
+            reject('Something went wrong with RgRJ validation!')
+        })
+    }
     
-    private static gerarRgRJ() {
+    
+    private static gerarRgRJ(arrayDefined: any) {
+    
+        let RgRJ = []
+    
+        RgRJ = arrayDefined ? arrayDefined : []
         
         const firstDv = [2, 1, 2, 1, 2, 1, 2]
-        
-        const RgRJ = []
         
         let firstDvAcc = 0
         
         function getRandomArbitrary(min: any, max: any) {
             return Math.floor(Math.random() * (max - min) + min)
         }
-        
-        for (let i = 0; i <= 6; i++) {
-            RgRJ.push(getRandomArbitrary(0, 10))
+    
+        if (!arrayDefined) {
+            for (let i = 0; i <= 6; i++) {
+                RgRJ.push(getRandomArbitrary(0, 10))
+            }
         }
         
-        RgRJ.forEach((el: any, index) => {
+        RgRJ.forEach((el: any, index:any) => {
             
             if (el * firstDv[index] > 9) {
                 let sum = el * firstDv[index]
@@ -54,6 +68,25 @@ export class RgRJCreator {
         RgRJ.push(firstDVNumber)
         
         return `${RgRJ[0]}${RgRJ[1]}${RgRJ[2]}${RgRJ[3]}${RgRJ[4]}${RgRJ[5]}${RgRJ[6]}-${RgRJ[7]}`
+    }
+    
+    private static validarRgRJ(valueToCheck: any) {
+        
+        const cleanData = valueToCheck.replace(/\D/g, '')
+        const cleanDataArr = cleanData.split('')
+        
+        if (cleanDataArr.length !== 8) return false
+        
+        const dv1 = cleanDataArr[7]
+        const RgRJ = cleanDataArr.slice(0, 7)
+        const RgRJResult = this.gerarRgRJ(RgRJ)
+        const clearRgRJResult = RgRJResult.replace(/\D/g, '')
+        const dvToCheck1 = clearRgRJResult[7]
+        
+        console.log(dv1,dvToCheck1)
+        
+        return dv1 === dvToCheck1
+        
     }
     
 }

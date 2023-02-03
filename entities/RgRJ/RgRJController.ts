@@ -2,6 +2,7 @@ import {Response} from 'express';
 import {OK} from 'http-status';
 import {logger} from '../../util/Logger/Logger';
 import RgRJService from "./services/RgRJService";
+import PisService from "../Pis/services/PisService";
 
 interface IRgRJController {
     create(req: any, res: Response): Promise<Response>
@@ -24,6 +25,18 @@ class RgRJController implements IRgRJController {
         logger.success('RgRJ Created')
         
         return res.status(OK).json(created)
+        
+    }
+    
+    async validate(req: any, res: Response): Promise<Response> {
+        
+        const valueToValidate = req.body.valueToValidate
+        
+        const isValid = await RgRJService.validate(valueToValidate)
+        
+        logger.success("RgRJ Checked")
+        
+        return res.status(OK).json(isValid)
         
     }
     

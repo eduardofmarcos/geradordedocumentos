@@ -1,5 +1,6 @@
 import {logger} from '../../../util/Logger/Logger';
 import {RgRJCreator} from "../util/RgRJCreator";
+import {PisCreator} from "../../Pis/util/PisCreator";
 
 class RgRJService {
     
@@ -29,6 +30,18 @@ class RgRJService {
         } catch (e) {
             console.log(e)
         }
+        
+    }
+    
+    async validate(valueToCheck: string): Promise<string | any> {
+        
+        try {
+            const resultOfValidation = await RgRJCreator.RgRJValidator(valueToCheck)
+            return resultOfValidation
+        } catch (e) {
+            console.log(e)
+        }
+        
         
     }
 }

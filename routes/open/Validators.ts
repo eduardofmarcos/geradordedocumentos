@@ -7,6 +7,7 @@ import NifController from "../../entities/NifPortugal/NifController";
 import PisController from "../../entities/Pis/PisController";
 import RegistroEncomendaController from "../../entities/RegistroEncomenda/RegistroEncomendaController";
 import RenavamController from "../../entities/Renavam/RenavamController";
+import RgRJController from "../../entities/RgRJ/RgRJController";
 
 const router = Router();
 
@@ -17,6 +18,7 @@ router.post('/nif', AsyncHandlerP.handler(NifController.validate))
 router.post('/pis', AsyncHandlerP.handler(PisController.validate))
 router.post('/reen', AsyncHandlerP.handler(RegistroEncomendaController.validate))
 router.post('/renavam', AsyncHandlerP.handler(RenavamController.validate))
+router.post('/rgrj', AsyncHandlerP.handler(RgRJController.validate))
 
 
 export default router;
