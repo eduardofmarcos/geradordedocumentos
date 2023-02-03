@@ -68,8 +68,8 @@ export class PisCreator {
         const dv1 = cleanDataArr[10]
         const Pis = cleanDataArr.slice(0, 10)
         const PisResult = this.gerarPis(Pis)
-        const clearNifResult = PisResult.replace(/\D/g, '')
-        const dvToCheck1 = clearNifResult[10]
+        const clearPisResult = PisResult.replace(/\D/g, '')
+        const dvToCheck1 = clearPisResult[10]
         
         console.log(dv1,dvToCheck1)
         

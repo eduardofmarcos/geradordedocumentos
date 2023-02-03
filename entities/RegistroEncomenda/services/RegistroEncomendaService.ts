@@ -1,5 +1,6 @@
 import {logger} from '../../../util/Logger/Logger';
 import {RegistroEncomendaCreator} from "../util/RegistroEncomendaCreator";
+import {PisCreator} from "../../Pis/util/PisCreator";
 
 class RegistroEncomendaService {
     
@@ -30,6 +31,18 @@ class RegistroEncomendaService {
         } catch (e) {
             console.log(e)
         }
+        
+    }
+    
+    async validate(valueToCheck: string): Promise<string | any> {
+        
+        try {
+            const resultOfValidation = await RegistroEncomendaCreator.RegistroEncomendaValidator(valueToCheck)
+            return resultOfValidation
+        } catch (e) {
+            console.log(e)
+        }
+        
         
     }
 }

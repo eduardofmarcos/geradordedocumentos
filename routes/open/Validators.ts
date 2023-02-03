@@ -5,6 +5,7 @@ import CnhController from "../../entities/Cnh/CnhController";
 import MaspController from "../../entities/MaSP/MaspController";
 import NifController from "../../entities/NifPortugal/NifController";
 import PisController from "../../entities/Pis/PisController";
+import RegistroEncomendaController from "../../entities/RegistroEncomenda/RegistroEncomendaController";
 
 const router = Router();
 
@@ -13,6 +14,7 @@ router.post('/cnh', AsyncHandlerP.handler(CnhController.validate))
 router.post('/masp', AsyncHandlerP.handler(MaspController.validate))
 router.post('/nif', AsyncHandlerP.handler(NifController.validate))
 router.post('/pis', AsyncHandlerP.handler(PisController.validate))
+router.post('/reen', AsyncHandlerP.handler(RegistroEncomendaController.validate))
 
 
 export default router;
