@@ -2,7 +2,6 @@ import {Response} from 'express';
 import {OK} from 'http-status';
 import {logger} from '../../util/Logger/Logger';
 import NifService from "./services/NifService";
-import MaspService from "../MaSP/services/MaspService";
 
 interface INifController {
     create(req: any, res: Response): Promise<Response>

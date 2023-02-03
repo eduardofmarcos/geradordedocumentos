@@ -1,6 +1,5 @@
 import {logger} from '../../../util/Logger/Logger';
 import {RenavamCreator} from "../util/RenavamCreator";
-import {PisCreator} from "../../Pis/util/PisCreator";
 
 class RenavamService {
     

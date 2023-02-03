@@ -2,7 +2,6 @@ import {Response} from 'express';
 import {OK} from 'http-status';
 import {logger} from '../../util/Logger/Logger';
 import RgRJService from "./services/RgRJService";
-import PisService from "../Pis/services/PisService";
 
 interface IRgRJController {
     create(req: any, res: Response): Promise<Response>

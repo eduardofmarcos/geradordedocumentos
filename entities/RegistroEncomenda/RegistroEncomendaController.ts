@@ -2,7 +2,6 @@ import {Response} from 'express';
 import {OK} from 'http-status';
 import {logger} from '../../util/Logger/Logger';
 import RegistroEncomendaService from "./services/RegistroEncomendaService";
-import PisService from "../Pis/services/PisService";
 
 interface IRegistroEncomendaController {
     create(req: any, res: Response): Promise<Response>

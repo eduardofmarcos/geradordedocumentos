@@ -23,11 +23,10 @@ export class PisCreator {
     }
     
     
-    
     private static gerarPis(arrayDefined: any) {
-    
+        
         let Pis = []
-    
+        
         Pis = arrayDefined ? arrayDefined : []
         
         
@@ -38,14 +37,14 @@ export class PisCreator {
         function getRandomArbitrary(min: any, max: any) {
             return Math.floor(Math.random() * (max - min) + min)
         }
-    
+        
         if (!arrayDefined) {
             for (let i = 0; i <= 9; i++) {
                 Pis.push(getRandomArbitrary(0, 10))
             }
         }
         
-        Pis.forEach((el: any, index:any) => {
+        Pis.forEach((el: any, index: any) => {
             firstDvAcc = firstDvAcc + (el * firstDv[index])
         })
         
@@ -71,7 +70,7 @@ export class PisCreator {
         const clearPisResult = PisResult.replace(/\D/g, '')
         const dvToCheck1 = clearPisResult[10]
         
-        console.log(dv1,dvToCheck1)
+        console.log(dv1, dvToCheck1)
         
         return dv1 === dvToCheck1
         

@@ -24,9 +24,9 @@ export class RgRJCreator {
     
     
     private static gerarRgRJ(arrayDefined: any) {
-    
+        
         let RgRJ = []
-    
+        
         RgRJ = arrayDefined ? arrayDefined : []
         
         const firstDv = [2, 1, 2, 1, 2, 1, 2]
@@ -36,14 +36,14 @@ export class RgRJCreator {
         function getRandomArbitrary(min: any, max: any) {
             return Math.floor(Math.random() * (max - min) + min)
         }
-    
+        
         if (!arrayDefined) {
             for (let i = 0; i <= 6; i++) {
                 RgRJ.push(getRandomArbitrary(0, 10))
             }
         }
         
-        RgRJ.forEach((el: any, index:any) => {
+        RgRJ.forEach((el: any, index: any) => {
             
             if (el * firstDv[index] > 9) {
                 let sum = el * firstDv[index]
@@ -83,7 +83,7 @@ export class RgRJCreator {
         const clearRgRJResult = RgRJResult.replace(/\D/g, '')
         const dvToCheck1 = clearRgRJResult[7]
         
-        console.log(dv1,dvToCheck1)
+        console.log(dv1, dvToCheck1)
         
         return dv1 === dvToCheck1
         

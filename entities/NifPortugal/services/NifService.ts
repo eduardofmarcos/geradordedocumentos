@@ -1,6 +1,5 @@
 import {logger} from '../../../util/Logger/Logger';
 import {NifCreator} from "../util/NifCreator";
-import {MaspCreator} from "../../MaSP/util/MaspCreator";
 
 class NifService {
     

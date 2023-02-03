@@ -1,6 +1,5 @@
 import {logger} from '../../../util/Logger/Logger';
 import {PisCreator} from "../util/PisCreator";
-import {NifCreator} from "../../NifPortugal/util/NifCreator";
 
 class PisService {
     

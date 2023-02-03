@@ -1,6 +1,5 @@
 import {logger} from '../../../util/Logger/Logger';
 import {RegistroEncomendaCreator} from "../util/RegistroEncomendaCreator";
-import {PisCreator} from "../../Pis/util/PisCreator";
 
 class RegistroEncomendaService {
     

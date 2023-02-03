@@ -24,9 +24,9 @@ export class RenavamCreator {
     
     
     private static gerarRenavam(arrayDefined: any) {
-    
+        
         let Renavam = []
-    
+        
         Renavam = arrayDefined ? arrayDefined : []
         
         const firstDv = [3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
@@ -36,14 +36,14 @@ export class RenavamCreator {
         function getRandomArbitrary(min: any, max: any) {
             return Math.floor(Math.random() * (max - min) + min)
         }
-    
+        
         if (!arrayDefined) {
             for (let i = 0; i <= 9; i++) {
                 Renavam.push(getRandomArbitrary(0, 10))
             }
         }
         
-        Renavam.forEach((el: any, index:any) => {
+        Renavam.forEach((el: any, index: any) => {
             firstDvAcc = firstDvAcc + (el * firstDv[index])
         })
         
@@ -69,7 +69,7 @@ export class RenavamCreator {
         const clearRenavamResult = RenavamResult.replace(/\D/g, '')
         const dvToCheck1 = clearRenavamResult[10]
         
-        console.log(dv1,dvToCheck1)
+        console.log(dv1, dvToCheck1)
         
         return dv1 === dvToCheck1
         

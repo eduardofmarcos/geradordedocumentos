@@ -2,7 +2,6 @@ import {Response} from 'express';
 import {OK} from 'http-status';
 import {logger} from '../../util/Logger/Logger';
 import RenavamService from "./services/RenavamService";
-import PisService from "../Pis/services/PisService";
 
 interface IRenavamController {
     create(req: any, res: Response): Promise<Response>

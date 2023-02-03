@@ -23,9 +23,9 @@ export class RegistroEncomendaCreator {
     
     
     private static gerarRegistroEncomenda(arrayDefined: any) {
-    
+        
         let RegistroEncomenda = []
-    
+        
         RegistroEncomenda = arrayDefined ? arrayDefined : []
         
         const firstDv = [8, 6, 4, 2, 3, 5, 9, 7]
@@ -35,14 +35,14 @@ export class RegistroEncomendaCreator {
         function getRandomArbitrary(min: any, max: any) {
             return Math.floor(Math.random() * (max - min) + min)
         }
-    
+        
         if (!arrayDefined) {
             for (let i = 0; i <= 7; i++) {
                 RegistroEncomenda.push(getRandomArbitrary(0, 10))
             }
         }
         
-        RegistroEncomenda.forEach((el: any, index:any) => {
+        RegistroEncomenda.forEach((el: any, index: any) => {
             firstDvAcc = firstDvAcc + (el * firstDv[index])
         })
         

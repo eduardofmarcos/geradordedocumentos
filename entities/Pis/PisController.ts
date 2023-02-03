@@ -2,7 +2,6 @@ import {Response} from 'express';
 import {OK} from 'http-status';
 import {logger} from '../../util/Logger/Logger';
 import PisService from "./services/PisService";
-import NifService from "../NifPortugal/services/NifService";
 
 interface IPisController {
     create(req: any, res: Response): Promise<Response>
