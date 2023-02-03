@@ -83,8 +83,6 @@ export class RgRJCreator {
         const clearRgRJResult = RgRJResult.replace(/\D/g, '')
         const dvToCheck1 = clearRgRJResult[7]
         
-        console.log(dv1, dvToCheck1)
-        
         return dv1 === dvToCheck1
         
     }

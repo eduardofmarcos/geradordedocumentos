@@ -70,8 +70,6 @@ export class PisCreator {
         const clearPisResult = PisResult.replace(/\D/g, '')
         const dvToCheck1 = clearPisResult[10]
         
-        console.log(dv1, dvToCheck1)
-        
         return dv1 === dvToCheck1
         
     }

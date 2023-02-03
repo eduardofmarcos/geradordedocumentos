@@ -5,8 +5,9 @@ export class RegistroEncomendaCreator {
     public static RegistroEncomendaGenerator(): Promise<string> {
         
         const result: string = this.gerarRegistroEncomenda(null)
-        console.log(result)
+        
         return new Promise((resolve, reject): void => {
+            resolve(result)
             reject('Something went wrong with RegistroEncomenda creation!')
         })
     }
@@ -66,7 +67,7 @@ export class RegistroEncomendaCreator {
     }
     
     private static validarRegistroEncomenda(valueToCheck: any) {
-        console.log('passou aqui?')
+       
         const cleanData = valueToCheck.replace(/\D/g, '')
         const cleanDataArr = cleanData.split('')
         

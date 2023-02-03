@@ -69,8 +69,6 @@ export class RenavamCreator {
         const clearRenavamResult = RenavamResult.replace(/\D/g, '')
         const dvToCheck1 = clearRenavamResult[10]
         
-        console.log(dv1, dvToCheck1)
-        
         return dv1 === dvToCheck1
         
     }
