@@ -1,45 +1,55 @@
 export class CpfCreator {
     constructor() {
     }
-    
+
     public static cpfGenerator(): Promise<string> {
         
-        const result: string = this.gerarCpf()
+        const result: string = this.gerarCPF()
         
         return new Promise((resolve, reject): void => {
             resolve(result)
-            reject('Something went wrong with CPF creation!')
+            reject('Something went wrong with RgSP creation!')
         })
     }
-    
-    
-    private static gerarCpf() {
-        const num1 = this.aleatorio();
-        const num2 = this.aleatorio();
-        const num3 = this.aleatorio();
-        const dig1 = this.dig(num1, num2, num3);
-        const dig2 = this.dig(num1, num2, num3, dig1);
-        return `${num1}.${num2}.${num3}-${dig1}${dig2}`;
-    }
-    
-    private static dig(n1: any, n2: any, n3: any, n4?: any) {
-        const nums = n1.split("").concat(n2.split(""), n3.split(""));
-        if (n4 !== undefined) {
-            nums[9] = n4;
+
+    private static gerarCPF() {
+        
+        const firstDv = [10, 9, 8, 7, 6, 5, 4, 3, 2]
+        const secondDv = [11, 10, 9, 8, 7, 6, 5, 4, 3, 2] 
+        
+        const CPF = []
+        
+        let firstDvAcc = 0
+        let secondDvAcc = 0
+        
+        function getRandomArbitrary(min: any, max: any) {
+            return Math.floor(Math.random() * (max - min) + min)
         }
         
-        let x = 0;
-        for (let i = (n4 !== undefined ? 11 : 10), j = 0; i >= 2; i--, j++) {
-            x += parseInt(nums[j]) * i;
+        for (let i = 0; i < 9; i++) {
+            CPF.push(getRandomArbitrary(0, 10))
         }
         
-        const y = x % 11;
-        return y < 2 ? 0 : 11 - y;
+        CPF.forEach((el: any, index) => {
+            firstDvAcc = firstDvAcc + (el * firstDv[index])
+        })
+        
+        let firstDVNumber: any = firstDvAcc % 11
+        
+        firstDVNumber = firstDVNumber < 2 ? 0 : (11 - firstDVNumber)
+        
+        CPF.push(firstDVNumber)
+
+        CPF.forEach((el: any, index) => {
+            secondDvAcc = secondDvAcc + (el * secondDv[index])
+        })
+
+        let secondDVNumber: any = secondDvAcc % 11
+
+        secondDVNumber= secondDVNumber < 2 ? 0 : (11 - secondDVNumber)
+
+        CPF.push(secondDVNumber)
+
+        return `${CPF[0]}${CPF[1]}${CPF[2]}.${CPF[3]}${CPF[4]}${CPF[5]}.${CPF[6]}${CPF[7]}${CPF[8]}-${CPF[9]}${CPF[10]}`
     }
-    
-    private static aleatorio() {
-        const aleat = Math.floor(Math.random() * 999);
-        return ("" + aleat).padStart(3, '0');
-    }
-    
 }
