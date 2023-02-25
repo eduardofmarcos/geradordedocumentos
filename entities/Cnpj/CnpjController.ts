@@ -26,6 +26,18 @@ class CnpjController implements ICnpjController {
         return res.status(OK).json(created)
         
     }
+
+    async validate(req: any, res: Response): Promise<Response> {
+        
+        const valueToValidate = req.body.valueToValidate
+        
+        const isValid = await CnpjService.validate(valueToValidate)
+        
+        logger.success("Cnpj Checked")
+        
+        return res.status(OK).json(isValid)
+        
+    }
     
 }
 

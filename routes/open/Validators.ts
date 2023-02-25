@@ -9,11 +9,13 @@ import RegistroEncomendaController from "../../entities/RegistroEncomenda/Regist
 import RenavamController from "../../entities/Renavam/RenavamController";
 import RgRJController from "../../entities/RgRJ/RgRJController";
 import CpfController from '../../entities/Cpf/CpfController';
+import CnpjController from '../../entities/Cnpj/CnpjController';
 
 const router = Router();
 
 router.post('/certidao', AsyncHandlerP.handler(CertidaoController.validate))
 router.post('/cpf', AsyncHandlerP.handler(CpfController.validate))
+router.post('/cnpj', AsyncHandlerP.handler(CnpjController.validate))
 router.post('/cnh', AsyncHandlerP.handler(CnhController.validate))
 router.post('/masp', AsyncHandlerP.handler(MaspController.validate))
 router.post('/nif', AsyncHandlerP.handler(NifController.validate))
