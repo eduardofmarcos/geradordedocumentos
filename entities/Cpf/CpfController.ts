@@ -26,6 +26,18 @@ class CpfController implements ICpfController {
         return res.status(OK).json(created)
         
     }
+
+    async validate(req: any, res: Response): Promise<Response> {
+        
+        const valueToValidate = req.body.valueToValidate
+        
+        const isValid = await CpfService.validate(valueToValidate)
+        
+        logger.success("CPF Checked")
+        
+        return res.status(OK).json(isValid)
+        
+    }
     
 }
 
