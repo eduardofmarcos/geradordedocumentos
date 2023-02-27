@@ -1,7 +1,5 @@
 export interface ICreditCard {
-    
-    number: string,
-    expireDate: string
-    cvv: string
-    
+  number: string;
+  expireDate: string;
+  cvv: string;
 }

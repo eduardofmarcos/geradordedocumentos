@@ -1,4 +1,4 @@
-require('dotenv').config()
+require("dotenv").config();
 import Application from "./Application";
 
-new Application()
+new Application();
