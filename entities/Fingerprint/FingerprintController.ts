@@ -15,13 +15,23 @@ class FingerprintController implements IFingerprintController {
     logger.start("Creating Fingerprint");
 
     // while in Digital Ocean
-    const IP = req.headers["do-connecting-ip"]
-  
+    const IP = req.headers["do-connecting-ip"];
+
     const created: string = await FingerprintService.create(IP);
 
     logger.success("Fingerprint Created");
 
     return res.status(OK).json(created);
+  }
+
+  async validate(req: any, res: Response): Promise<Response> {
+    const valueToValidate = req.body.valueToValidate;
+
+    const isValid = await FingerprintService.validate(valueToValidate);
+
+    logger.success("Fingerprint (whois) validated.");
+
+    return res.status(OK).json(isValid);
   }
 }
 

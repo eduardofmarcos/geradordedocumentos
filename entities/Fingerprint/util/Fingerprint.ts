@@ -1,11 +1,12 @@
 // import ip from "ip";
 import axios from "axios";
 import { IGeoData } from "../types/interfaces/interfaces";
+import whoiser, { WhoisSearchResult } from "whoiser";
 
 export class FingerprintCreator {
   constructor() {}
 
-  public static FingerprintGenerator(ip:any): Promise<string> {
+  public static FingerprintGenerator(ip: any): Promise<string> {
     const result: any = this.gerarFingerprint(ip);
 
     return new Promise((resolve, reject): void => {
@@ -14,7 +15,18 @@ export class FingerprintCreator {
     });
   }
 
-  private static async gerarFingerprint(ip:any): Promise<IGeoData> {
+  public static fingerprintValidator(
+    valueToCheck: string
+  ): Promise<WhoisSearchResult> {
+    const result = this.validarFingerprint(valueToCheck);
+
+    return new Promise((resolve, reject): void => {
+      resolve(result);
+      reject("Something went wrong with CPF validation!");
+    });
+  }
+
+  private static async gerarFingerprint(ip: any): Promise<IGeoData> {
     // const ipNumber: any = ip.address();
 
     const result = await axios.get(
@@ -52,5 +64,10 @@ export class FingerprintCreator {
     };
 
     return geoData;
+  }
+
+  private static validarFingerprint(valueToCheck: string) {
+    const whoisDomain = whoiser(valueToCheck);
+    return whoisDomain;
   }
 }
