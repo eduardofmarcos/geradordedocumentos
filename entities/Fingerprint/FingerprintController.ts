@@ -14,6 +14,10 @@ class FingerprintController implements IFingerprintController {
   async create(req: any, res: Response): Promise<Response> {
     logger.start("Creating Fingerprint");
 
+    // while in Digital Ocean
+    const IP = req.headers["do-connecting-ip"]
+    console.log("IPPPPPpPPPPPPPPPPPP",IP)
+
     const created: string = await FingerprintService.create();
 
     logger.success("Fingerprint Created");
