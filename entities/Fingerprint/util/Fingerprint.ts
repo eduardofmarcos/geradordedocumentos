@@ -5,8 +5,8 @@ import { IGeoData } from "../types/interfaces/interfaces";
 export class FingerprintCreator {
   constructor() {}
 
-  public static FingerprintGenerator(): Promise<string> {
-    const result: any = this.gerarFingerprint();
+  public static FingerprintGenerator(ip:any): Promise<string> {
+    const result: any = this.gerarFingerprint(ip);
 
     return new Promise((resolve, reject): void => {
       resolve(result);
@@ -14,11 +14,11 @@ export class FingerprintCreator {
     });
   }
 
-  private static async gerarFingerprint(): Promise<IGeoData> {
+  private static async gerarFingerprint(ip:any): Promise<IGeoData> {
     // const ipNumber: any = ip.address();
 
     const result = await axios.get(
-      `https://api.ipgeolocation.io/ipgeo?apiKey=12e3ba0c0de9465caed1091bedb4c249`
+      `https://api.ipgeolocation.io/ipgeo?apiKey=12e3ba0c0de9465caed1091bedb4c249&ip=${ip}`
     );
 
     const geoData: IGeoData = {

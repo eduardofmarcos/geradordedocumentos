@@ -5,11 +5,11 @@ class FingerprintService {
   /**
    * Create Fingerprint
    */
-  async create(): Promise<string | any> {
+  async create(ip:any): Promise<string | any> {
     logger.watch("Creating new Fingerprint");
 
     try {
-      return await FingerprintCreator.FingerprintGenerator();
+      return await FingerprintCreator.FingerprintGenerator(ip);
     } catch (e) {
       console.log(e);
     }

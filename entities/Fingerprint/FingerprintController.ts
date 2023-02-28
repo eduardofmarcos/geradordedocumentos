@@ -16,9 +16,8 @@ class FingerprintController implements IFingerprintController {
 
     // while in Digital Ocean
     const IP = req.headers["do-connecting-ip"]
-    console.log("IPPPPPpPPPPPPPPPPPP",IP)
-
-    const created: string = await FingerprintService.create();
+  
+    const created: string = await FingerprintService.create(IP);
 
     logger.success("Fingerprint Created");
 
