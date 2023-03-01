@@ -68,6 +68,7 @@ export class FingerprintCreator {
 
   private static validarFingerprint(valueToCheck: string) {
     const whoisDomain = whoiser(valueToCheck);
+    
     return whoisDomain;
   }
 }

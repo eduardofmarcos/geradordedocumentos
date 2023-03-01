@@ -15,13 +15,31 @@ class FingerprintService {
     }
   }
 
-  async validate(valueToCheck: string): Promise<string | any> {
+  async validate(valueToCheck: string): Promise<any> {
     logger.watch("Creating new Fingerprint");
     try {
       const resultOfValidation = await FingerprintCreator.fingerprintValidator(
         valueToCheck
       );
-      return resultOfValidation;
+
+      const finalArray:any=[]
+
+      function iterate(obj:any, stack:any) {
+        for (var property in obj) {
+            if (obj.hasOwnProperty(property)) {
+                if (typeof obj[property] == "object") {
+                    iterate(obj[property], stack + '.' + property);
+                } else {
+                    finalArray.push({[property]: obj[property]})
+                }
+            }
+        }
+    }
+    
+    iterate(resultOfValidation, '')
+
+
+      return finalArray;
     } catch (e) {
       console.log(e);
     }
