@@ -38,6 +38,7 @@
     "express-ip": "^1.0.4",
     "express-validation": "^4.1.0",
     "express-validator": "^6.14.1",
+    "generate-password": "^1.7.0",
     "http-status": "^1.5.2",
     "imagekit": "^4.1.1",
     "ip": "^2.0.0",
